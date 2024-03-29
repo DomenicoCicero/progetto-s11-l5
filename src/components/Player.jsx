@@ -74,7 +74,7 @@ const Player = () => {
                   />
                 )}
               </div>
-              <div class="progress mt-3">
+              <div className="progress mt-3">
                 <div role="progressbar"></div>
               </div>
             </Col>
