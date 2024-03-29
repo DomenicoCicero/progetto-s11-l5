@@ -1,7 +1,11 @@
 import Slider from "react-slick";
 import SingleCard from "./SingleCard";
+import { useDispatch } from "react-redux";
+import { setSelectedSong } from "../redux/actions";
 
 const MyCarousel = props => {
+  const dispatch = useDispatch();
+
   const settings = {
     dots: true,
     infinite: false,
@@ -42,7 +46,7 @@ const MyCarousel = props => {
       <Slider {...settings}>
         {props.genre.map(song => {
           return (
-            <div key={song.id} className="mx-2">
+            <div key={song.id} className="mx-2" onClick={() => dispatch(setSelectedSong(song))}>
               <SingleCard img={song.album.cover_medium} title={song.album.title} artist={song.artist.name} />
             </div>
           );

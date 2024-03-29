@@ -1,20 +1,21 @@
 import "./App.css";
-import MySidebar from "./components/MySidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Player from "./components/Player";
-import Main from "./components/Main";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MyCarousel from "./components/MyCarousel";
+import HomePage from "./components/HomePage";
+import Library from "./components/Library";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <MySidebar />
-      <Main />
-      <Player />
-      {/* <MyCarousel /> */}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/library" element={<Library />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

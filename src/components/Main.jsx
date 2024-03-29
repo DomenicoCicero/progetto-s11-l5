@@ -21,6 +21,14 @@ const Main = () => {
     return state.hiphop.content;
   });
 
+  const songsSearch = useSelector(state => {
+    return state.search.content;
+  });
+
+  const searchInput = useSelector(state => {
+    return state.search.search;
+  });
+
   useEffect(() => {
     dispatch(getFetch("queen", GET_ROOK));
     dispatch(getFetch("Katy Perry", GET_POP));
@@ -39,38 +47,47 @@ const Main = () => {
             <a href="#">DISCOVER</a>
           </Col>
         </Row>
-        <Row>
-          <Col xs={10}>
-            <div id="searchResults" style={{ display: "none" }}>
-              <h2>Search Results</h2>
-              <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"></Row>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={10}>
-            <div id="rock">
-              <h2>Rock Classics</h2>
-              <MyCarousel genre={songsRook} />
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={10}>
-            <div id="pop">
-              <h2>Pop Culture</h2>
-              <MyCarousel genre={songsPop} />
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={10}>
-            <div id="hiphop">
-              <h2>#HipHop</h2>
-              <MyCarousel genre={songsHiphop} />
-            </div>
-          </Col>
-        </Row>
+        {searchInput !== "" && (
+          <>
+            <Row>
+              <Col xs={10}>
+                <div id="searchResults">
+                  <h2>Search Results</h2>
+                  <MyCarousel genre={songsSearch} />
+                </div>
+              </Col>
+            </Row>
+          </>
+        )}
+
+        {searchInput === "" && (
+          <>
+            <Row>
+              <Col xs={10}>
+                <div id="rock">
+                  <h2>Rock Classics</h2>
+                  <MyCarousel genre={songsRook} />
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={10}>
+                <div id="pop">
+                  <h2>Pop Culture</h2>
+                  <MyCarousel genre={songsPop} />
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={10}>
+                <div id="hiphop">
+                  <h2>#HipHop</h2>
+                  <MyCarousel genre={songsHiphop} />
+                </div>
+              </Col>
+            </Row>
+          </>
+        )}
       </Col>
     </Container>
   );
