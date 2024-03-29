@@ -54,8 +54,8 @@ const Library = () => {
                   <Row>
                     {likesPlaylist.map(element => {
                       return (
-                        <Col xs={3}>
-                          <div key={element.id} onClick={() => dispatch(setSelectedSong(element))}>
+                        <Col xs={3} key={element.id}>
+                          <div onClick={() => dispatch(setSelectedSong(element))}>
                             <SingleCard
                               img={element.album.cover_medium}
                               title={element.album.title}
@@ -87,8 +87,8 @@ const Library = () => {
                   <Row>
                     {rookPlaylist.map(element => {
                       return (
-                        <Col xs={3}>
-                          <div key={element.id} onClick={() => dispatch(setSelectedSong(element))}>
+                        <Col xs={3} key={element.id}>
+                          <div onClick={() => dispatch(setSelectedSong(element))}>
                             <SingleCard
                               img={element.album.cover_medium}
                               title={element.album.title}
@@ -120,8 +120,8 @@ const Library = () => {
                   <Row>
                     {popPlaylist.map(element => {
                       return (
-                        <Col xs={3}>
-                          <div key={element.id} onClick={() => dispatch(setSelectedSong(element))}>
+                        <Col xs={3} key={element.id}>
+                          <div onClick={() => dispatch(setSelectedSong(element))}>
                             <SingleCard
                               img={element.album.cover_medium}
                               title={element.album.title}
@@ -153,8 +153,8 @@ const Library = () => {
                   <Row>
                     {hiphopPlaylist.map(element => {
                       return (
-                        <Col xs={3}>
-                          <div key={element.id} onClick={() => dispatch(setSelectedSong(element))}>
+                        <Col xs={3} key={element.id}>
+                          <div onClick={() => dispatch(setSelectedSong(element))}>
                             <SingleCard
                               img={element.album.cover_medium}
                               title={element.album.title}
